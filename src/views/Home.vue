@@ -7,8 +7,10 @@
             <img src="../assets/logo.png" alt="" />
           </el-col>
           <el-col :span="8" class="infoBox">
-            <span>user</span>
-            <el-button type="text" class="out-btn">退出</el-button>
+             <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png">
+             </el-avatar>
+            <el-button type="text" @click="PClick" class="personal-btn">用户名</el-button>
+            <el-button type="text" @click='signOut' class="out-btn">退出</el-button>
           </el-col>
         </el-row>
       </el-header>
@@ -40,9 +42,21 @@ export default {
   name: "Home",
   setup() {
     console.log(router);
-    const tablist = router.options.routes[0].children
+    const tablist = router.options.routes[0].children;
+
+    const PClick=()=>{
+      router.push('/personal')
+    }
+    const signOut=()=>{
+      router.push('/')
+    }
+    
+
     return {
       tablist,
+      PClick,
+      signOut,
+      
     };
   },
 };
@@ -53,7 +67,7 @@ img {
   width: 50px;
 }
 .headBox {
-  background-color: #efefef;
+  background-color: rgb(230, 228, 229);
   padding: 5px;
 }
 .infoBox {
@@ -62,4 +76,9 @@ img {
 .out-btn {
   margin-left: 20px;
 }
+.personal-btn{
+  font-size: 20px;
+  color: #da7cff;
+}
+
 </style>

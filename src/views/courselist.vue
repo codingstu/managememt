@@ -1,9 +1,9 @@
 <template>
   <div></div>
   <el-table :data="data.table[data.page]" stripe style="width: 100%">
-    <el-table-column prop="image_hue" label="日期" width="180"> </el-table-column>
-    <el-table-column prop="" label="姓名" width="180"> </el-table-column>
-    <el-table-column prop="" label="地址"> </el-table-column>
+    <el-table-column prop="id" label="日期" width="180"> </el-table-column>
+    <el-table-column prop="title" label="姓名" width="180"> </el-table-column>
+    <el-table-column prop="body" label="地址"> </el-table-column>
   </el-table>
   <el-pagination
     @size-change="handleSizeChange"

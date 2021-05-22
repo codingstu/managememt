@@ -1,9 +1,8 @@
 import axios from 'axios'
-//axios.create 创建一个axios实例  我们给这个实例编写配置，后续所有通过实例发送的请求，都受当前配置约束
+//创建一个axios实例  
 const http = axios.create({
     baseURL: '',
     timeout: 1000,
-    // headers: {'X-Custom-Header': 'foobar'}
   });
 
   // 添加请求拦截器
