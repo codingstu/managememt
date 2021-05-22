@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["teacherlist"],{"3b99":function(e,n,t){"use strict";t.r(n);var r=t("7a23"),u=Object(r["m"])("audio",{id:"audio",src:"https://www.runoob.com/try/demo_source/horse.mp3",hidden:""},null,-1);function o(e,n,t,o,c,i){return Object(r["D"])(),Object(r["i"])("div",null,[u])}var c={name:"music",setup:function(){var e=function(){alert(1)};return{handlePlay:e}}};c.render=o;n["default"]=c}}]);
+//# sourceMappingURL=teacherlist.e46ef248.js.map
