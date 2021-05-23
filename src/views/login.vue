@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <h4>后台管理系统</h4>
+    <h4>综合门户管理系统</h4>
     <el-form label-width="80px" :model="loginData">
       <el-form-item label="用户名">
         <el-input
@@ -22,12 +22,20 @@
           show-password
         ></el-input>
       </el-form-item>
-      <el-form-item class="btn"> 
+      <el-form-item class="btn">
         <el-button @click="loginClick" class="loginbtn">登录</el-button>
-        <el-button @click="register" class="registerbtn">注册</el-button>
+        <el-button type="text" @click="registerClick" class="registerbtn">没有账号？去注册</el-button>
+        <!-- <el-button @click="register" class="  ">注册</el-button> -->
       </el-form-item>
     </el-form>
+      <div>
+        
+        
+      </div>
+    
   </div>
+
+   
 </template>
 
 <script>
@@ -46,7 +54,11 @@ export default {
     });
 
     const loginClick = () => {
-      if (!loginData.username||!loginData.password||!loginData.confirmpassword) {
+      if (
+        !loginData.username ||
+        !loginData.password ||
+        !loginData.confirmpassword
+      ) {
         ElMessage.error("请输入用户名和密码");
         return;
       }
@@ -56,14 +68,14 @@ export default {
       });
     };
 
-    const register = () => {
+    const  registerClick= () => {
       router.push("/register");
     };
     return {
-      register,
       loginData,
       loginClick,
-      register,
+      registerClick,
+      
     };
   },
 };
@@ -80,10 +92,14 @@ export default {
 h4 {
   text-align: center;
 }
-.btn{
+.btn {
   text-align: center;
 }
 .loginbtn {
+  width: 100%;
   margin-right: 100px;
+}
+.registerbtn{
+  font-size: 8px;
 }
 </style>

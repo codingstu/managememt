@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <h4>后台管理系统</h4>
+    <h4>综合门户管理系统</h4>
     <h4>注册</h4>
     <el-form label-width="80px" :model="registerData">
       <el-form-item label="用户名">
@@ -23,9 +23,9 @@
           show-password
         ></el-input>
       </el-form-item>
-      <el-form-item>
-        <el-button @click="registerClick" class="btn">注册</el-button>
-
+      <el-form-item class="btn">
+        <el-button @click="registerClick" class="registerbtn">注册</el-button>
+        <el-button type="text" @click="loginClick" class="loginbtn">已有账号，去登录</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -63,10 +63,14 @@ export default {
           ElMessage.error('请输入一致的密码')
       }
     }
+    const loginClick=()=>{
+      router.push('/')
+    }
 
     return {
       registerData,
-      registerClick
+      registerClick,
+      loginClick
     };
   },
 };
@@ -83,8 +87,15 @@ export default {
 h4 {
   text-align: center;
 }
-.btn {
+.registerbtn {
   width: 100%;
+}
+.btn{
+  text-align: center;
+}
+.loginbtn {
+  font-size: 10px;
+  
 }
 </style>
 
