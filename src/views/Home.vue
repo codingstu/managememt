@@ -41,7 +41,7 @@ import router from "../router/index";
 export default {
   name: "Home",
   setup() {
-    console.log(router);
+    // console.log(router);
 
     
     const tablist = router.options.routes[0].children;

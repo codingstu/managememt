@@ -63,7 +63,7 @@ export default {
         return;
       }
       loginUrl(loginData).then((res) => {
-        console.log(res);
+        // console.log(res);
         router.push("./Home");
       });
     };

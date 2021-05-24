@@ -1,22 +1,35 @@
 <template>
-  <div></div>
-  <el-table :data="data.table[data.page]" stripe style="width: 100%">
-    <el-table-column prop="aqi" label="pm" width="180"> </el-table-column>
-    <el-table-column prop="co" label="co" width="180"> </el-table-column>
-    <el-table-column prop="ct" label="地址"> </el-table-column>
-  </el-table>
-  <el-pagination
-    @size-change="handleSizeChange"
-    @current-change="handleCurrentChange"
-    :current-page="data.page"
-    layout="total, prev, pager, next, jumper"
-    :total="data.total">
-  </el-pagination>
+  <!-- <div>{{data.table.list}}</div> -->
+   <el-table
+      :data="data.table.list"
+      style="width: 100%">
+      <el-table-column
+        prop="PostNumber"
+        label="日期">
+      </el-table-column>
+      <el-table-column
+        prop="Province"
+        label="姓名">
+      </el-table-column>
+      <el-table-column
+        prop="City"
+        label="地址">
+      </el-table-column>
+      <el-table-column
+        prop="District"
+        label="地址">
+      </el-table-column>
+      <el-table-column
+        prop="Address"
+        label="地址">
+      </el-table-column>
+    </el-table>
 </template>
 
 <script>
 import { reactive } from "vue";
 import { getCourseData } from "../http/api";
+import axios from "vue";
 
 export default {
   name: "courselist",
@@ -26,34 +39,37 @@ export default {
       page: 0,
       pasges: 0,
       total:0
-
     });
+    getCourseData().then(res => {
+      data.table = res.result;
+      console.log(data)
+    });
+    // let getCourseDataList = async (obj) => {
+    //   let arr = await getCourseData(obj),
+    //   newArr = [];
+    //   data.total = arr.length;
+    //   console.log(data.table)
+    //   //   [1,2,3,4,5,6,7]   [10,11,12----100]
+    //   //   [[1,2],[3,4],[5,6],[7]]
+    //   //split(index,10)==[0-10]
+    //   for (let index = 0; index < arr.length; index++) {
+    //     let obj = arr.splice(index, 8);
+    //     newArr.push(obj);
+    //     index += 10;
+    //   }
+    //   data.table = newArr;
+    //   console.log(newArr);
+    // };
 
-    let getCourseDataList = async (obj) => {
-      
-      let arr = await getCourseData(obj),newarr=[];
-        data.total=arr.length;
-        
-        for(let index=0;index<arr.length;index++){
-        let obj = arr.splice(index,7);
-        newarr.push(obj);
-        index+=10;
-    } 
-    data.table=newarr;
-    }; 
-    
-
-    let handleCurrentChange=index=>{
-        data.page=index;
-        
-    }
-  
-    getCourseDataList();
+    // let handleCurrentChange=index=>{
+    //     data.page=index;
+    // }
+    // getCourseDataList();
 
     return {
       data,
-      handleCurrentChange,
-      getCourseDataList
+      // handleCurrentChange,
+      // getCourseDataList
     };
   },
 };

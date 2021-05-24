@@ -3,8 +3,7 @@ module.exports = {
     devServer: {
 		proxy: {
 		  '/api': {
-			target: 'https://api.apishop.net/common/air/getCityPM25Detail',
-			// darget: 'http://v.juhe.cn/toutiao/index',
+			target: 'https://api.apishop.net/common/postcode/getPostCodeByAddr',
 			changeOrigin: true,
 			pathRewrite: {
 			  '^/api': ''
