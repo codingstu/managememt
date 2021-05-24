@@ -1,9 +1,9 @@
 <template>
   <div></div>
   <el-table :data="data.table[data.page]" stripe style="width: 100%">
-    <el-table-column prop="id" label="日期" width="180"> </el-table-column>
-    <el-table-column prop="title" label="姓名" width="180"> </el-table-column>
-    <el-table-column prop="body" label="地址"> </el-table-column>
+    <el-table-column prop="aqi" label="pm" width="180"> </el-table-column>
+    <el-table-column prop="co" label="co" width="180"> </el-table-column>
+    <el-table-column prop="ct" label="地址"> </el-table-column>
   </el-table>
   <el-pagination
     @size-change="handleSizeChange"
@@ -30,24 +30,30 @@ export default {
     });
 
     let getCourseDataList = async (obj) => {
+      
       let arr = await getCourseData(obj),newarr=[];
-      data.total=arr.length;
-       for(let index=0;index<arr.length;index++){
-        let obj = arr.splice(index,10);
+        data.total=arr.length;
+        
+        for(let index=0;index<arr.length;index++){
+        let obj = arr.splice(index,7);
         newarr.push(obj);
         index+=10;
     } 
     data.table=newarr;
-    };
+    }; 
+    
+
     let handleCurrentChange=index=>{
-        data.page=index
+        data.page=index;
+        
     }
-   
+  
     getCourseDataList();
 
     return {
       data,
-      handleCurrentChange
+      handleCurrentChange,
+      getCourseDataList
     };
   },
 };

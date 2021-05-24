@@ -15,10 +15,10 @@
         </el-row>
       </el-header>
       <el-container>
-        <el-aside width="200px">
+        <el-aside width:200px class="aside">
           <div>
             <el-menu router="true" class="el-menu-vertical-demo">
-              <el-menu-item :route='i.path' v-for="i in tablist" :key=i.name index="i.name">
+              <el-menu-item class="el" :route='i.path' v-for="i in tablist" :key=i.name index="i.name">
                 <i class="el-icon-document"></i>
                 <template #title>{{i.meta.title}}</template>
               </el-menu-item>
@@ -42,6 +42,8 @@ export default {
   name: "Home",
   setup() {
     console.log(router);
+
+    
     const tablist = router.options.routes[0].children;
 
     const PClick=()=>{
@@ -67,7 +69,7 @@ img {
   width: 50px;
 }
 .headBox {
-  background-color: rgb(230, 228, 229);
+  background-color: #efefef;
   padding: 5px;
 }
 .infoBox {
@@ -81,4 +83,13 @@ img {
   color: #da7cff;
 }
 
+.el-menu-vertical-demo{
+  height: 2000px;
+  width:200px;
+  background-color: #efefef;
+}
+.el{
+  margin: 40px auto;
+  font-size: 18px;
+}
 </style>

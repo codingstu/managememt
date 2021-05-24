@@ -1,7 +1,9 @@
 import axios from 'axios'
+
+
 //创建一个axios实例  
 const http = axios.create({
-    baseURL: '',
+    baseURL: '/api',
     timeout: 1000,
   });
 
